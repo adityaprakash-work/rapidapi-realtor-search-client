@@ -1,0 +1,1601 @@
+openapi: 3.1.0
+info:
+  title: RapidAPI Realtor Search python SDK
+  description: |
+    This is a python SDK for the RapidAPI Realtor Search API.
+  version: 1.0.0
+servers:
+  - url: https://realtor-search.p.rapidapi.com
+    description: RapidAPI Realtor Search API
+security:
+  - ApiKeyAuth: []
+paths:
+  /properties/search-buy:
+    get:
+      tags:
+        - Properties
+      x-speakeasy-group: properties
+      summary: Search for properties to buy
+      operationId: searchBuy
+      parameters:
+        - $ref: "#/components/parameters/location"
+        - $ref: "#/components/parameters/zoneId"
+        - $ref: "#/components/parameters/resultsPerPage"
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/sortBy"
+        - $ref: "#/components/parameters/expandSearchArea"
+        - $ref: "#/components/parameters/propertyType"
+        - $ref: "#/components/parameters/prices"
+        - $ref: "#/components/parameters/bedrooms"
+        - $ref: "#/components/parameters/bathrooms"
+        - $ref: "#/components/parameters/homeSize"
+        - $ref: "#/components/parameters/lotSize"
+        - $ref: "#/components/parameters/homeAge"
+        - $ref: "#/components/parameters/hidePendingContingent"
+        - $ref: "#/components/parameters/newConstructionOnly"
+        - $ref: "#/components/parameters/hideHomesNotYetBuilt"
+        - $ref: "#/components/parameters/foreclosuresOnly"
+        - $ref: "#/components/parameters/hideForeclosures"
+        - $ref: "#/components/parameters/seniorCommunityOnly"
+        - $ref: "#/components/parameters/openHousesOnly"
+        - $ref: "#/components/parameters/priceRecentlyReducedOnly"
+        - $ref: "#/components/parameters/virtualToursOnly"
+        - $ref: "#/components/parameters/threeDtoursOnly"
+        - $ref: "#/components/parameters/maxHoaFeesPerMonth"
+        - $ref: "#/components/parameters/showHomesWhereHoaIsNotKnown"
+        - $ref: "#/components/parameters/daysOnRealtor"
+        - $ref: "#/components/parameters/garageParking"
+        - $ref: "#/components/parameters/heatingCooling"
+        - $ref: "#/components/parameters/homeFeatures"
+        - $ref: "#/components/parameters/lotFeatures"
+        - $ref: "#/components/parameters/communityFeatures"
+        - $ref: "#/components/parameters/nycAmenities"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SearchBuyResponse"
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+  /properties/search-rent:
+    get:
+      tags:
+        - Properties
+      x-speakeasy-group: properties
+      summary: Search for properties to rent
+      operationId: searchRent
+      parameters:
+        - $ref: "#/components/parameters/location"
+        - $ref: "#/components/parameters/zoneId"
+        - $ref: "#/components/parameters/resultsPerPage"
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/sortBy"
+        - $ref: "#/components/parameters/expandSearchArea"
+        - $ref: "#/components/parameters/propertyType"
+        - $ref: "#/components/parameters/prices"
+        - $ref: "#/components/parameters/bedrooms"
+        - $ref: "#/components/parameters/bathrooms"
+        - $ref: "#/components/parameters/moveInDate"
+        - $ref: "#/components/parameters/homeSize"
+        - $ref: "#/components/parameters/threeDtoursOnly"
+        - $ref: "#/components/parameters/pets"
+        - $ref: "#/components/parameters/features"
+        - $ref: "#/components/parameters/nycAmenities"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SearchRentResponse"
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+  /properties/search-sold:
+    get:
+      tags:
+        - Properties
+      x-speakeasy-group: properties
+      summary: Search for sold properties
+      operationId: searchSold
+      parameters:
+        - $ref: "#/components/parameters/location"
+        - $ref: "#/components/parameters/zoneId"
+        - $ref: "#/components/parameters/minSoldDate"
+        - $ref: "#/components/parameters/resultsPerPage"
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/sortBySold"
+        - $ref: "#/components/parameters/expandSearchArea"
+        - $ref: "#/components/parameters/propertyType"
+        - $ref: "#/components/parameters/prices"
+        - $ref: "#/components/parameters/bedrooms"
+        - $ref: "#/components/parameters/bathrooms"
+        - $ref: "#/components/parameters/homeSize"
+        - $ref: "#/components/parameters/lotSize"
+        - $ref: "#/components/parameters/homeAge"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                      total:
+                        type: integer
+                      boundary:
+                        $ref: "#/components/schemas/Boundary"
+                      search_promotion:
+                        type: "null"
+                      results:
+                        type: array
+                        items:
+                          $ref: "#/components/schemas/Property"
+                  meta:
+                    $ref: "#/components/schemas/Meta"
+                  status:
+                    type: boolean
+                  message:
+                    type: string
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+  /properties/auto-complete:
+    get:
+      tags:
+        - Properties
+      x-speakeasy-group: properties
+      summary: Auto-complete for properties
+      operationId: autoComplete
+      parameters:
+        - $ref: "#/components/parameters/input"
+        - $ref: "#/components/parameters/limit"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AutoCompleteResponse"
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+  /properties/detail:
+    get:
+      tags:
+        - Properties
+      x-speakeasy-group: properties
+      summary: Get property details
+      operationId: getPropertyDetails
+      parameters:
+        - $ref: "#/components/parameters/propertyId"
+        - $ref: "#/components/parameters/listingId"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PropertyDetailResponse"
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-rapidapi-key
+      x-speakeasy-example: "<YOUR_API_KEY>"
+
+  parameters:
+    location:
+      name: location
+      in: query
+      required: true
+      schema:
+        type: string
+      description: |
+        Location can be retrieved from /properties/auto-complete endpoint (data->autocomplete->id).
+        Example: city:New York, NY
+    zoneId:
+      name: zoneId
+      in: query
+      schema:
+        type: string
+      description: |
+        For accurate results, you should select the correct zoneId for your area.
+        Example: America/New_York
+    resultsPerPage:
+      name: resultsPerPage
+      in: query
+      schema:
+        type: integer
+        minimum: 8
+        maximum: 200
+        default: 20
+      description: |
+        Total number of records per API call.
+        Example: 20
+    page:
+      name: page
+      in: query
+      schema:
+        type: integer
+        default: 1
+      description: |
+        The page index, for paging purpose.
+        Example: 2
+    sortBy:
+      name: sortBy
+      in: query
+      schema:
+        type: string
+        enum:
+          [
+            relevance,
+            newest,
+            lowest_price,
+            highest_price,
+            open_house_date,
+            price_reduced,
+            largest_squarefoot,
+            photo_count,
+          ]
+        default: relevance
+      description: |
+        Sort by.
+        Example: relevance
+    expandSearchArea:
+      name: expandSearchArea
+      in: query
+      schema:
+        type: integer
+        enum: [0, 1, 5, 10, 25, 50]
+        default: 0
+      description: |
+        Expand search area.
+        Example: 1
+    propertyType:
+      name: propertyType
+      in: query
+      schema:
+        type: string
+        pattern: "^(condo|co_op|cond_op|townhome|single_family_home|multi_family|mobile_mfd|farm_ranch|land)(,(condo|co_op|cond_op|townhome|single_family_home|multi_family|mobile_mfd|farm_ranch|land))*$"
+      description: |
+        Property type. It can input multiple values, and the values should be separated by commas.
+        Example: condo,co_op
+    prices:
+      name: prices
+      in: query
+      schema:
+        type: string
+        pattern: "^\\d*,\\d*$"
+      description: |
+        Prices. Min and max prices should be separated by commas.
+        Example: 1200,12345
+        In the case of only having the minimum price: Example: 1200,
+        In the case of only having the maximum price: Example: ,12345
+        In case of having both: Example: 1200,12345
+    bedrooms:
+      name: bedrooms
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 5
+        default: 0
+      description: |
+        Bedrooms. It has a value ranging from 0 to 5.
+        Example: 5
+    bathrooms:
+      name: bathrooms
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 5
+        default: 1
+      description: |
+        Bathrooms. It has a value ranging from 1 to 5.
+        Example: 5
+    homeSize:
+      name: homeSize
+      in: query
+      schema:
+        type: string
+        pattern: "^\\d*,\\d*$"
+      description: |
+        Home size. Min and max home size should be separated by commas.
+        Example: 500,1000
+        In the case of only having the minimum size: Example: 500,
+        In the case of only having the maximum size: Example: ,1000
+        In case of having both: Example: 500,1000
+        Some example values:
+        500: 500 sqft
+        750: 750 sqft
+        1000: 1000 sqft
+    lotSize:
+      name: lotSize
+      in: query
+      schema:
+        type: string
+        pattern: "^\\d*,\\d*$"
+      description: |
+        Lot size. Min and max lot size should be separated by commas.
+        Example: 2000,7500
+    homeAge:
+      name: homeAge
+      in: query
+      schema:
+        type: string
+        pattern: "^\\d*,\\d*$"
+      description: |
+        Home age. Min and max home age should be separated by commas.
+        Example: 1,5
+    hidePendingContingent:
+      name: hidePendingContingent
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: |
+        Hide pending/contingent.
+    newConstructionOnly:
+      name: newConstructionOnly
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: |
+        New construction only.
+    hideHomesNotYetBuilt:
+      name: hideHomesNotYetBuilt
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: |
+        Hide homes not yet built.
+    foreclosuresOnly:
+      name: foreclosuresOnly
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: |
+        Foreclosures only.
+    hideForeclosures:
+      name: hideForeclosures
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: |
+        Hide foreclosures.
+    seniorCommunityOnly:
+      name: seniorCommunityOnly
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: |
+        55+ community only.
+    openHousesOnly:
+      name: openHousesOnly
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: |
+        Open houses only.
+    priceRecentlyReducedOnly:
+      name: priceRecentlyReducedOnly
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: |
+        Price recently reduced only.
+    virtualToursOnly:
+      name: virtualToursOnly
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: |
+        Virtual tours only.
+    threeDtoursOnly:
+      name: threeDtoursOnly
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: |
+        3D tours only.
+    maxHoaFeesPerMonth:
+      name: maxHoaFeesPerMonth
+      in: query
+      schema:
+        type: integer
+      description: |
+        Max HOA fees per month.
+        Example: 0
+    showHomesWhereHoaIsNotKnown:
+      name: showHomesWhereHoaIsNotKnown
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: |
+        Show homes where HOA is not known.
+    daysOnRealtor:
+      name: daysOnRealtor
+      in: query
+      schema:
+        type: integer
+      description: |
+        Days on realtor.com.
+        Example: 7
+    garageParking:
+      name: garageParking
+      in: query
+      schema:
+        type: string
+        pattern: "^(garage_1_or_more|garage_2_or_more|garage_3_or_more|carport|rv_or_boat_parking)(,(garage_1_or_more|garage_2_or_more|garage_3_or_more|carport|rv_or_boat_parking))*$"
+      description: |
+        Garage/Parking. It can input multiple values, and the values should be separated by commas.
+        Example: garage_1_or_more,garage_2_or_more
+        garage_1_or_more: Garage (any)
+        garage_2_or_more: Garage (2+ cars)
+        garage_3_or_more: Garage (3+ cars)
+        carport: Carport
+        rv_or_boat_parking: RV/Boat Parking
+    heatingCooling:
+      name: heatingCooling
+      in: query
+      schema:
+        type: string
+        pattern: "^(central_air|central_heat|forced_air|energy_efficient)(,(central_air|central_heat|forced_air|energy_efficient))*$"
+      description: |
+        Heating/Cooling. It can input multiple values, and the values should be separated by commas.
+        Example: central_air,central_heat
+        central_air: Central Air
+        central_heat: Central Heat
+        forced_air: Forced Air
+        energy_efficient: Energy Efficient
+    homeFeatures:
+      name: homeFeatures
+      in: query
+      schema:
+        type: string
+        pattern: "^(basement|den_or_office|dining_room|family_room|game_room|washer_dryer|disability_features|fireplace|hardwood_floors|horse_facilities|spa_or_hot_tub|swimming_pool|tennis_court|single_story|two_or_more_stories|lease_option|pets_allowed)(,(basement|den_or_office|dining_room|family_room|game_room|washer_dryer|disability_features|fireplace|hardwood_floors|horse_facilities|spa_or_hot_tub|swimming_pool|tennis_court|single_story|two_or_more_stories|lease_option|pets_allowed))*$"
+      description: |
+        Home features. It can input multiple values, and the values should be separated by commas.
+        Example: basement,den_or_office
+        basement: Basement
+        den_or_office: Den/Office
+        dining_room: Dining Room
+        family_room: Family Room
+        game_room: Game Room
+        washer_dryer: In-home Laundry
+        disability_features: Accessibility Features
+        fireplace: Fireplace
+        hardwood_floors: Hardwood Floors
+        horse_facilities: Horse Facilities
+        spa_or_hot_tub: Spa/Hot Tub
+        swimming_pool: Swimming Pool
+        tennis_court: Tennis Court
+        single_story: Single Story
+        two_or_more_stories: Multi-Story
+        lease_option: Lease Option
+        pets_allowed: Pets Allowed
+    lotFeatures:
+      name: lotFeatures
+      in: query
+      schema:
+        type: string
+        pattern: "^(corner_lot|cul_de_sac|golf_course_lot_or_frontage|waterfront|city_view|golf_course_view|hill_or_mountain_view|lake_view|ocean_view|river_view|water_view|view)(,(corner_lot|cul_de_sac|golf_course_lot_or_frontage|waterfront|city_view|golf_course_view|hill_or_mountain_view|lake_view|ocean_view|river_view|water_view|view))*$"
+      description: |
+        Lot features. It can input multiple values, and the values should be separated by commas.
+        Example: corner_lot,cul_de_sac
+        corner_lot: Corner Lot
+        cul_de_sac: Cul de Sac
+        golf_course_lot_or_frontage: Golf Course Lot
+        waterfront: Waterfront
+        city_view: City View
+        golf_course_view: Golf Course View
+        hill_or_mountain_view: Hill/Mountain View
+        lake_view: Lake View
+        ocean_view: Ocean View
+        river_view: River View
+        water_view: Water View
+        view: View (any)
+    communityFeatures:
+      name: communityFeatures
+      in: query
+      schema:
+        type: string
+        pattern: "^(community_swimming_pool|community_boat_facilities|community_spa_or_hot_tub|community_tennis_court|community_golf|community_clubhouse|community_security_features|senior_community|community_horse_facilities|community_park|recreation_facilities)(,(community_swimming_pool|community_boat_facilities|community_spa_or_hot_tub|community_tennis_court|community_golf|community_clubhouse|community_security_features|senior_community|community_horse_facilities|community_park|recreation_facilities))*$"
+      description: |
+        Community features. It can input multiple values, and the values should be separated by commas.
+        Example: community_swimming_pool,community_boat_facilities
+        community_swimming_pool: Swimming Pool
+        community_boat_facilities: Boat Facilities
+        community_spa_or_hot_tub: Spa/Hot Tub
+        community_tennis_court: Tennis Court(s)
+        community_golf: Golf
+        community_clubhouse: Clubhouse
+        community_security_features: Security Features
+        senior_community: Senior Community
+        community_horse_facilities: Horse Facilities
+        community_park: Park
+        recreation_facilities: Recreation Facilities
+    nycAmenities:
+      name: nycAmenities
+      in: query
+      schema:
+        type: string
+        pattern: "^(community_doorman|community_elevator|dishwasher|community_outdoor_space|laundry_room)(,(community_doorman|community_elevator|dishwasher|community_outdoor_space|laundry_room))*$"
+      description: |
+        NYC amenities. It can input multiple values, and the values should be separated by commas.
+        Example: community_doorman,community_elevator
+        community_doorman: Doorman
+        community_elevator: Elevator
+        dishwasher: Dishwasher
+        community_outdoor_space: Outdoor Space
+        laundry_room: Laundry Room
+    moveInDate:
+      name: moveInDate
+      in: query
+      schema:
+        type: string
+        format: date
+      description: |
+        Move-in date. Show listings available by this date.
+        Example: 2024-05-01
+    pets:
+      name: pets
+      in: query
+      schema:
+        type: string
+        pattern: "^(cats|dogs|no_pets_allowed)(,(cats|dogs|no_pets_allowed))*$"
+      description: |
+        Pets. It can input multiple values, and the values should be separated by commas.
+        Example: cats,dogs
+        cats: Cats OK
+        dogs: Dogs OK
+        no_pets_allowed: No Pets Allowed
+    features:
+      name: features
+      in: query
+      schema:
+        type: string
+        pattern: "^(washer_dryer|garage_1_or_more|central_air|swimming_pool|community_gym)(,(washer_dryer|garage_1_or_more|central_air|swimming_pool|community_gym))*$"
+      description: |
+        Features. It can input multiple values, and the values should be separated by commas.
+        Example: washer_dryer,garage_1_or_more
+        washer_dryer: In-home Laundry
+        garage_1_or_more: Parking
+        central_air: Air Conditioning
+        swimming_pool: Pool
+        community_gym: Gym/Fitness Center
+    minSoldDate:
+      name: minSoldDate
+      in: query
+      schema:
+        type: string
+        format: date
+      description: |
+        Min sold date.
+        Example: 2024-02-19
+    sortBySold:
+      name: sortBy
+      in: query
+      schema:
+        type: string
+        enum: [lowest_price, highest_price]
+        default: lowest_price
+      description: |
+        Sort by.
+        Example: lowest_price
+    input:
+      name: input
+      in: query
+      required: true
+      schema:
+        type: string
+      description: |
+        States, cities, districts, addresses, zipcode.
+        Example: New York
+    limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 10
+      description: |
+        The number of items per response, for paging purpose.
+        Example: 2
+    propertyId:
+      name: propertyId
+      in: query
+      required: true
+      schema:
+        type: string
+      description: |
+        propertyId can be retrieved from /properties/search-buy or /properties/search-rent or /properties/search-sold or /properties/search-mls-id endpoint (data->results->property_id).
+        Example: 4752427680
+    listingId:
+      name: listingId
+      in: query
+      schema:
+        type: string
+      description: |
+        listingId can be retrieved from /properties/search-buy or /properties/search-rent or /properties/search-sold or /properties/search-mls-id endpoint (data->results->listing_id).
+        Example: 2964420807
+
+  schemas:
+    Boundary:
+      type: object
+      properties:
+        type:
+          type: string
+        coordinates:
+          type: array
+          items:
+            type: array
+            items:
+              type: array
+              items:
+                type: array
+                items:
+                  type: number
+
+    Meta:
+      type: object
+      properties:
+        currentPage:
+          type: integer
+        limit:
+          type: integer
+        totalRecords:
+          type: integer
+        totalPage:
+          type: integer
+
+    Property:
+      type: object
+      properties:
+        __typename:
+          type: string
+        property_id:
+          type: string
+        listing_id:
+          type: string
+        status:
+          type: string
+        primary_photo:
+          type: object
+          properties:
+            href:
+              type: string
+        photo_count:
+          type: integer
+        photos:
+          type: array
+          items:
+            type: object
+            properties:
+              href:
+                type: string
+        location:
+          type: object
+          properties:
+            county:
+              type: object
+              properties:
+                name:
+                  type: string
+            neighborhoods:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  city:
+                    type: string
+                  state_code:
+                    type: string
+                  level:
+                    type: string
+            address:
+              type: object
+              properties:
+                line:
+                  type: string
+                unit:
+                  type: "null"
+                street_number:
+                  type: string
+                street_name:
+                  type: string
+                street_suffix:
+                  type: string
+                city:
+                  type: string
+                postal_code:
+                  type: string
+                state_code:
+                  type: string
+                state:
+                  type: string
+                country:
+                  type: string
+                coordinate:
+                  type: object
+                  properties:
+                    lat:
+                      type: number
+                    lon:
+                      type: number
+            street_view_url:
+              type: string
+        list_price:
+          type: "null"
+        list_date:
+          type: string
+        list_price_min:
+          type: integer
+        list_price_max:
+          type: integer
+        price_reduced_date:
+          type: "null"
+        price_reduced_amount:
+          type: "null"
+        last_sold_date:
+          type: "null"
+        last_sold_price:
+          type: "null"
+        href:
+          type: string
+        products:
+          type: object
+          properties:
+            products:
+              type: array
+              items:
+                type: string
+        description:
+          type: object
+          properties:
+            baths:
+              type: "null"
+            baths_min:
+              type: integer
+            baths_max:
+              type: integer
+            baths_full_calc:
+              type: "null"
+            baths_partial_calc:
+              type: "null"
+            beds_min:
+              type: integer
+            beds_max:
+              type: integer
+            beds:
+              type: "null"
+            sqft:
+              type: "null"
+            lot_sqft:
+              type: "null"
+            type:
+              type: string
+            sqft_min:
+              type: integer
+            sqft_max:
+              type: integer
+        open_houses:
+          type: "null"
+        branding:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              name:
+                type: "null"
+        flags:
+          type: object
+          properties:
+            is_contingent:
+              type: "null"
+            is_new_construction:
+              type: "null"
+            is_pending:
+              type: "null"
+            is_foreclosure:
+              type: "null"
+            is_deal_available:
+              type: "null"
+            is_plan:
+              type: "null"
+            is_price_reduced:
+              type: "null"
+            is_new_listing:
+              type: boolean
+            is_coming_soon:
+              type: "null"
+        lead_attributes:
+          type: object
+          properties:
+            opcity_lead_attributes:
+              type: object
+              properties:
+                flip_the_market_enabled:
+                  type: boolean
+            show_contact_an_agent:
+              type: boolean
+            is_tcpa_message_enabled:
+              type: "null"
+            is_premium_ldp:
+              type: boolean
+        virtual_tours:
+          type: "null"
+        matterport:
+          type: boolean
+        advertisers:
+          type: array
+          items:
+            type: object
+            properties:
+              fulfillment_id:
+                type: string
+              name:
+                type: string
+              type:
+                type: string
+              office:
+                type: object
+                properties:
+                  name:
+                    type: string
+              builder:
+                type: "null"
+        source:
+          type: object
+          properties:
+            type:
+              type: string
+            plan_id:
+              type: "null"
+            listing_id:
+              type: string
+            community_id:
+              type: integer
+            id:
+              type: string
+            name:
+              type: string
+            disclaimer:
+              type: "null"
+            feed_type:
+              type: string
+            agents:
+              type: "null"
+        pet_policy:
+          type: object
+          properties:
+            cats:
+              type: boolean
+            dogs:
+              type: boolean
+            dogs_small:
+              type: boolean
+            dogs_large:
+              type: boolean
+        property_history:
+          type: "null"
+        search_promotions:
+          type: "null"
+        has_specials:
+          type: boolean
+        estimate:
+          type: "null"
+        current_estimates:
+          type: array
+        details:
+          type: array
+          items:
+            type: object
+            properties:
+              text:
+                type: array
+                items:
+                  type: string
+              category:
+                type: string
+
+    SearchBuyResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            count:
+              type: integer
+            total:
+              type: integer
+            boundary:
+              $ref: "#/components/schemas/Boundary"
+            search_promotion:
+              type: object
+              properties:
+                name:
+                  type: string
+                slots:
+                  type: array
+                promoted_properties:
+                  type: array
+                  items:
+                    type: array
+            results:
+              type: array
+              items:
+                type: object
+        meta:
+          $ref: "#/components/schemas/Meta"
+        status:
+          type: boolean
+        message:
+          type: string
+
+    SearchRentResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            count:
+              type: integer
+            total:
+              type: integer
+            boundary:
+              $ref: "#/components/schemas/Boundary"
+            search_promotion:
+              type: "null"
+            results:
+              type: array
+              items:
+                $ref: "#/components/schemas/Property"
+        meta:
+          $ref: "#/components/schemas/Meta"
+        status:
+          type: boolean
+        message:
+          type: string
+
+    AutoCompleteResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            meta:
+              $ref: "#/components/schemas/Meta"
+            autocomplete:
+              type: array
+              items:
+                type: object
+        status:
+          type: boolean
+        message:
+          type: string
+
+    PropertyDetailResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            property_id:
+              type: string
+            last_update_date:
+              type: string
+            last_price_change_date:
+              type: "null"
+            last_price_change_amount:
+              type: "null"
+            listing_id:
+              type: string
+            status:
+              type: string
+            href:
+              type: string
+            list_date:
+              type: string
+            mortgage:
+              type: object
+              properties:
+                property_tax_rate:
+                  type: number
+                rates_url:
+                  type: string
+                estimate:
+                  type: object
+                  properties:
+                    loan_amount:
+                      type: integer
+                    monthly_payment:
+                      type: integer
+                    total_payment:
+                      type: integer
+                    down_payment:
+                      type: integer
+                    average_rate:
+                      type: object
+                      properties:
+                        rate:
+                          type: number
+                        loan_type:
+                          type: object
+                          properties:
+                            term:
+                              type: integer
+                    monthly_payment_details:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                          amount:
+                            type: integer
+                          display_name:
+                            type: string
+                average_rates:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      loan_type:
+                        type: object
+                        properties:
+                          loan_id:
+                            type: string
+                      rate:
+                        type: number
+            hoa:
+              type: object
+              properties:
+                fee:
+                  type: integer
+            buyers:
+              type: "null"
+            description:
+              type: object
+              properties:
+                baths_consolidated:
+                  type: string
+                baths:
+                  type: integer
+                baths_min:
+                  type: "null"
+                baths_max:
+                  type: "null"
+                heating:
+                  type: "null"
+                cooling:
+                  type: "null"
+                beds:
+                  type: integer
+                beds_min:
+                  type: "null"
+                beds_max:
+                  type: "null"
+                garage:
+                  type: "null"
+                garage_min:
+                  type: "null"
+                garage_max:
+                  type: "null"
+                pool:
+                  type: "null"
+                sqft:
+                  type: "null"
+                sqft_min:
+                  type: "null"
+                sqft_max:
+                  type: "null"
+                styles:
+                  type: "null"
+                lot_sqft:
+                  type: integer
+                units:
+                  type: integer
+                stories:
+                  type: integer
+                type:
+                  type: string
+                text:
+                  type: string
+                year_built:
+                  type: integer
+                name:
+                  type: "null"
+            pet_policy:
+              type: "null"
+            nearby_schools:
+              type: object
+              properties:
+                schools:
+                  type: array
+                  items:
+                    type: object
+            schools:
+              type: object
+              properties:
+                schools:
+                  type: array
+                  items:
+                    type: object
+            products:
+              type: object
+              properties:
+                products:
+                  type: array
+                  items:
+                    type: string
+            list_price:
+              type: integer
+            list_price_min:
+              type: "null"
+            list_price_max:
+              type: "null"
+            price_per_sqft:
+              type: "null"
+            community:
+              type: "null"
+            lead_attributes:
+              type: object
+              properties:
+                opcity_lead_attributes:
+                  type: object
+                  properties:
+                    flip_the_market_enabled:
+                      type: boolean
+                    cashback_enabled:
+                      type: boolean
+                    phones:
+                      type: "null"
+                ready_connect_mortgage:
+                  type: object
+                  properties:
+                    show_contact_a_lender:
+                      type: boolean
+                    show_veterans_united:
+                      type: boolean
+                lead_type:
+                  type: string
+                show_lead_form:
+                  type: boolean
+                disclaimer_text:
+                  type: "null"
+                is_tcpa_message_enabled:
+                  type: "null"
+                show_text_leads:
+                  type: boolean
+                is_premium_ldp:
+                  type: "null"
+            flags:
+              type: object
+              properties:
+                is_contingent:
+                  type: "null"
+                is_new_construction:
+                  type: "null"
+                is_pending:
+                  type: "null"
+                is_foreclosure:
+                  type: "null"
+                is_deal_available:
+                  type: "null"
+                is_subdivision:
+                  type: "null"
+                is_plan:
+                  type: "null"
+                is_price_reduced:
+                  type: "null"
+                is_new_listing:
+                  type: boolean
+                is_coming_soon:
+                  type: "null"
+                is_usda_eligible:
+                  type: boolean
+            provider_url:
+              type: "null"
+            source:
+              type: object
+              properties:
+                id:
+                  type: string
+                disclaimer:
+                  type: object
+                  properties:
+                    text:
+                      type: string
+                    href:
+                      type: "null"
+                listing_id:
+                  type: string
+                plan_id:
+                  type: "null"
+                spec_id:
+                  type: "null"
+                community_id:
+                  type: "null"
+                name:
+                  type: string
+                type:
+                  type: string
+                feed_type:
+                  type: "null"
+                agents:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      agent_name:
+                        type: string
+            details:
+              type: array
+              items:
+                type: object
+                properties:
+                  category:
+                    type: string
+                  text:
+                    type: array
+                    items:
+                      type: string
+            open_houses:
+              type: "null"
+            tax_history:
+              type: array
+              items:
+                type: object
+                properties:
+                  tax:
+                    type: integer
+                  year:
+                    type: integer
+                  assessment:
+                    type: object
+                    properties:
+                      building:
+                        type: integer
+                      land:
+                        type: integer
+                      total:
+                        type: integer
+            location:
+              type: object
+              properties:
+                address:
+                  type: object
+                  properties:
+                    line:
+                      type: string
+                    city:
+                      type: string
+                    state_code:
+                      type: string
+                    postal_code:
+                      type: string
+                    state:
+                      type: string
+                    coordinate:
+                      type: object
+                      properties:
+                        lat:
+                          type: number
+                        lon:
+                          type: number
+                county:
+                  type: object
+                  properties:
+                    fips_code:
+                      type: string
+                street_view_url:
+                  type: string
+                neighborhoods:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      geo_statistics:
+                        type: object
+                        properties:
+                          housing_market:
+                            type: object
+                            properties:
+                              median_price_per_sqft:
+                                type: integer
+                              median_sold_price:
+                                type: integer
+                              median_listing_price:
+                                type: integer
+                              median_days_on_market:
+                                type: integer
+            branding:
+              type: array
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                  photo:
+                    type: "null"
+                  name:
+                    type: string
+                  phone:
+                    type: "null"
+                  slogan:
+                    type: "null"
+                  accent_color:
+                    type: "null"
+            consumer_advertisers:
+              type: array
+              items:
+                type: object
+            specials:
+              type: "null"
+            advertisers:
+              type: array
+              items:
+                type: object
+                properties:
+                  fulfillment_id:
+                    type: string
+                  name:
+                    type: string
+                  type:
+                    type: string
+                  email:
+                    type: string
+                  href:
+                    type: "null"
+                  state_license:
+                    type: string
+                  phones:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        number:
+                          type: string
+                        type:
+                          type: string
+                        ext:
+                          type: "null"
+                        trackable:
+                          type: "null"
+                        primary:
+                          type: boolean
+                  builder:
+                    type: "null"
+                  office:
+                    type: object
+                    properties:
+                      fulfillment_id:
+                        type: string
+                      name:
+                        type: string
+                      href:
+                        type: "null"
+                      photo:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                      email:
+                        type: string
+                      phones:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            number:
+                              type: string
+                            type:
+                              type: string
+                            ext:
+                              type: string
+                            trackable:
+                              type: "null"
+                            primary:
+                              type: boolean
+                      address:
+                        type: object
+                        properties:
+                          city:
+                            type: string
+                          state_code:
+                            type: string
+                  broker:
+                    type: "null"
+                  photo:
+                    type: "null"
+                  rental_management:
+                    type: "null"
+            photo_count:
+              type: integer
+            photos:
+              type: array
+              items:
+                type: object
+                properties:
+                  href:
+                    type: string
+                  type:
+                    type: string
+                  tags:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        label:
+                          type: string
+                        probability:
+                          type: number
+            property_history:
+              type: array
+              items:
+                type: object
+            local:
+              type: object
+              properties:
+                noise:
+                  type: object
+                  properties:
+                    score:
+                      type: integer
+                    noise_categories:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                          text:
+                            type: string
+                flood:
+                  type: object
+                  properties:
+                    fsid:
+                      type: string
+                    flood_factor_score:
+                      type: integer
+                    flood_trend_paragraph:
+                      type: string
+                    firststreet_url:
+                      type: string
+                    fema_zone:
+                      type: array
+                      items:
+                        type: string
+                    flood_insurance_text:
+                      type: string
+                    insurance_rates:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          provider_url:
+                            type: string
+            last_sold_price:
+              type: integer
+            last_sold_date:
+              type: string
+            estimates:
+              type: object
+              properties:
+                current_values:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      source:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                          name:
+                            type: string
+                      estimate:
+                        type: integer
+                      isbest_homevalue:
+                        type: boolean
+                historical_values:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      source:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                          name:
+                            type: string
+                      estimates:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            estimate:
+                              type: integer
+                            date:
+                              type: string
+                forecast_values:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      source:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                          name:
+                            type: string
+                      estimates:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            estimate:
+                              type: integer
+                            date:
+                              type: string
+            virtual_tours:
+              type: "null"
+            home_tours:
+              type: object
+              properties:
+                virtual_tours:
+                  type: array
+            matterport:
+              type: "null"
+            terms:
+              type: "null"
+            monthly_fees:
+              type: "null"
+            one_time_fees:
+              type: "null"
+            units:
+              type: "null"
+            community_rental_floorplans:
+              type: "null"
+        status:
+          type: boolean
+        message:
+          type: string
