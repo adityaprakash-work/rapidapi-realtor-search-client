@@ -1,0 +1,20 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    RapidAPI Realtor Search python SDK:
+        inputs:
+            - location: openapi.yml
+        overlays:
+            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+        registry:
+            location: registry.speakeasyapi.dev/adityaprakash-work/client-packages/rapid-api-realtor-search-python-sdk
+targets:
+    rapidapi-realtor-search-client:
+        target: python
+        source: RapidAPI Realtor Search python SDK
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/adityaprakash-work/client-packages/rapid-api-realtor-search-python-sdk-code-samples
+            labelOverride:
+                fixedValue: Python (SDK)
+            blocking: false

@@ -1,0 +1,9 @@
+# HistoricalValues
+
+
+## Fields
+
+| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `source`                                                                                                             | [Optional[models.PropertyDetailResponseDataEstimatesSource]](../models/propertydetailresponsedataestimatessource.md) | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `estimates`                                                                                                          | List[[models.PropertyDetailResponseDataEstimates](../models/propertydetailresponsedataestimates.md)]                 | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |

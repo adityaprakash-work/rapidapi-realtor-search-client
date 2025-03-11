@@ -1,0 +1,10 @@
+# CurrentValues
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `source`                                                                                           | [Optional[models.PropertyDetailResponseDataSource]](../models/propertydetailresponsedatasource.md) | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `estimate`                                                                                         | *Optional[int]*                                                                                    | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `isbest_homevalue`                                                                                 | *Optional[bool]*                                                                                   | :heavy_minus_sign:                                                                                 | N/A                                                                                                |

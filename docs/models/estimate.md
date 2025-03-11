@@ -1,0 +1,13 @@
+# Estimate
+
+
+## Fields
+
+| Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `loan_amount`                                                            | *Optional[int]*                                                          | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `monthly_payment`                                                        | *Optional[int]*                                                          | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `total_payment`                                                          | *Optional[int]*                                                          | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `down_payment`                                                           | *Optional[int]*                                                          | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `average_rate`                                                           | [Optional[models.AverageRate]](../models/averagerate.md)                 | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `monthly_payment_details`                                                | List[[models.MonthlyPaymentDetails](../models/monthlypaymentdetails.md)] | :heavy_minus_sign:                                                       | N/A                                                                      |

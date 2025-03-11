@@ -1,0 +1,268 @@
+lockVersion: 2.0.0
+id: 50c7766b-75dd-46e7-b0c9-bed12df5c06d
+management:
+  docChecksum: 1f4290ef4aaf35034fc39af769b8a278
+  docVersion: 1.0.0
+  speakeasyVersion: 1.515.0
+  generationVersion: 2.547.2
+  releaseVersion: 0.2.1
+  configChecksum: 45d7a1fe966586f49b99d705fe963966
+features:
+  python:
+    additionalDependencies: 1.0.0
+    constsAndDefaults: 1.0.5
+    core: 5.12.3
+    defaultEnabledRetries: 0.2.0
+    devContainers: 3.0.0
+    enumUnions: 0.1.0
+    envVarSecurityUsage: 0.3.2
+    examples: 3.0.1
+    flattening: 3.1.1
+    globalSecurity: 3.0.3
+    globalSecurityCallbacks: 1.0.0
+    globalSecurityFlattening: 1.0.0
+    globalServerURLs: 3.1.0
+    groups: 3.0.0
+    methodArguments: 1.0.2
+    nameOverrides: 3.0.1
+    nullables: 1.0.1
+    responseFormat: 1.0.1
+    retries: 3.0.2
+    sdkHooks: 1.0.1
+generatedFiles:
+  - .devcontainer/README.md
+  - .devcontainer/devcontainer.json
+  - .devcontainer/setup.sh
+  - .gitattributes
+  - .python-version
+  - .vscode/settings.json
+  - USAGE.md
+  - docs/models/address.md
+  - docs/models/advertisers.md
+  - docs/models/agents.md
+  - docs/models/assessment.md
+  - docs/models/autocomplete.md
+  - docs/models/autocompleterequest.md
+  - docs/models/autocompleteresponse.md
+  - docs/models/autocompleteresponsedata.md
+  - docs/models/averagerate.md
+  - docs/models/averagerates.md
+  - docs/models/boundary.md
+  - docs/models/branding.md
+  - docs/models/consumeradvertisers.md
+  - docs/models/coordinate.md
+  - docs/models/county.md
+  - docs/models/currentvalues.md
+  - docs/models/data.md
+  - docs/models/description.md
+  - docs/models/details.md
+  - docs/models/disclaimer.md
+  - docs/models/estimate.md
+  - docs/models/estimates.md
+  - docs/models/expandsearcharea.md
+  - docs/models/flags.md
+  - docs/models/flood.md
+  - docs/models/forecastvalues.md
+  - docs/models/geostatistics.md
+  - docs/models/getpropertydetailsrequest.md
+  - docs/models/historicalvalues.md
+  - docs/models/hoa.md
+  - docs/models/hometours.md
+  - docs/models/housingmarket.md
+  - docs/models/insurancerates.md
+  - docs/models/leadattributes.md
+  - docs/models/loantype.md
+  - docs/models/local.md
+  - docs/models/location.md
+  - docs/models/meta.md
+  - docs/models/monthlypaymentdetails.md
+  - docs/models/mortgage.md
+  - docs/models/nearbyschools.md
+  - docs/models/neighborhoods.md
+  - docs/models/noise.md
+  - docs/models/noisecategories.md
+  - docs/models/office.md
+  - docs/models/opcityleadattributes.md
+  - docs/models/petpolicy.md
+  - docs/models/phones.md
+  - docs/models/photo.md
+  - docs/models/photos.md
+  - docs/models/primaryphoto.md
+  - docs/models/products.md
+  - docs/models/property.md
+  - docs/models/propertydetailresponse.md
+  - docs/models/propertydetailresponseaddress.md
+  - docs/models/propertydetailresponseadvertisers.md
+  - docs/models/propertydetailresponsebranding.md
+  - docs/models/propertydetailresponsecoordinate.md
+  - docs/models/propertydetailresponsecounty.md
+  - docs/models/propertydetailresponsedata.md
+  - docs/models/propertydetailresponsedataaddress.md
+  - docs/models/propertydetailresponsedataestimates.md
+  - docs/models/propertydetailresponsedataestimatesforecastvaluessource.md
+  - docs/models/propertydetailresponsedataestimatessource.md
+  - docs/models/propertydetailresponsedataschools.md
+  - docs/models/propertydetailresponsedatasource.md
+  - docs/models/propertydetailresponsedescription.md
+  - docs/models/propertydetailresponsedetails.md
+  - docs/models/propertydetailresponseestimates.md
+  - docs/models/propertydetailresponseflags.md
+  - docs/models/propertydetailresponseleadattributes.md
+  - docs/models/propertydetailresponseloantype.md
+  - docs/models/propertydetailresponselocation.md
+  - docs/models/propertydetailresponseneighborhoods.md
+  - docs/models/propertydetailresponseoffice.md
+  - docs/models/propertydetailresponseopcityleadattributes.md
+  - docs/models/propertydetailresponsephones.md
+  - docs/models/propertydetailresponsephotos.md
+  - docs/models/propertydetailresponseproducts.md
+  - docs/models/propertydetailresponseschools.md
+  - docs/models/propertydetailresponsesource.md
+  - docs/models/propertyhistory.md
+  - docs/models/readyconnectmortgage.md
+  - docs/models/results.md
+  - docs/models/schools.md
+  - docs/models/searchbuyrequest.md
+  - docs/models/searchbuyresponse.md
+  - docs/models/searchpromotion.md
+  - docs/models/searchrentrequest.md
+  - docs/models/searchrentresponse.md
+  - docs/models/searchrentresponsedata.md
+  - docs/models/searchsolddata.md
+  - docs/models/searchsoldrequest.md
+  - docs/models/searchsoldresponsebody.md
+  - docs/models/security.md
+  - docs/models/sortby.md
+  - docs/models/sortbysold.md
+  - docs/models/source.md
+  - docs/models/tags.md
+  - docs/models/taxhistory.md
+  - docs/models/utils/retryconfig.md
+  - docs/sdks/properties/README.md
+  - docs/sdks/rapidapirealtorsearchclient/README.md
+  - poetry.toml
+  - py.typed
+  - pylintrc
+  - pyproject.toml
+  - scripts/prepare_readme.py
+  - scripts/publish.sh
+  - src/rapidapi_realtor_search_client/__init__.py
+  - src/rapidapi_realtor_search_client/_hooks/__init__.py
+  - src/rapidapi_realtor_search_client/_hooks/sdkhooks.py
+  - src/rapidapi_realtor_search_client/_hooks/types.py
+  - src/rapidapi_realtor_search_client/_version.py
+  - src/rapidapi_realtor_search_client/basesdk.py
+  - src/rapidapi_realtor_search_client/httpclient.py
+  - src/rapidapi_realtor_search_client/models/__init__.py
+  - src/rapidapi_realtor_search_client/models/apierror.py
+  - src/rapidapi_realtor_search_client/models/autocompleteop.py
+  - src/rapidapi_realtor_search_client/models/autocompleteresponse.py
+  - src/rapidapi_realtor_search_client/models/boundary.py
+  - src/rapidapi_realtor_search_client/models/expandsearcharea.py
+  - src/rapidapi_realtor_search_client/models/getpropertydetailsop.py
+  - src/rapidapi_realtor_search_client/models/meta.py
+  - src/rapidapi_realtor_search_client/models/property.py
+  - src/rapidapi_realtor_search_client/models/propertydetailresponse.py
+  - src/rapidapi_realtor_search_client/models/searchbuyop.py
+  - src/rapidapi_realtor_search_client/models/searchbuyresponse.py
+  - src/rapidapi_realtor_search_client/models/searchrentop.py
+  - src/rapidapi_realtor_search_client/models/searchrentresponse.py
+  - src/rapidapi_realtor_search_client/models/searchsoldop.py
+  - src/rapidapi_realtor_search_client/models/security.py
+  - src/rapidapi_realtor_search_client/models/sortby.py
+  - src/rapidapi_realtor_search_client/models/sortbysold.py
+  - src/rapidapi_realtor_search_client/properties.py
+  - src/rapidapi_realtor_search_client/py.typed
+  - src/rapidapi_realtor_search_client/sdk.py
+  - src/rapidapi_realtor_search_client/sdkconfiguration.py
+  - src/rapidapi_realtor_search_client/types/__init__.py
+  - src/rapidapi_realtor_search_client/types/basemodel.py
+  - src/rapidapi_realtor_search_client/utils/__init__.py
+  - src/rapidapi_realtor_search_client/utils/annotations.py
+  - src/rapidapi_realtor_search_client/utils/enums.py
+  - src/rapidapi_realtor_search_client/utils/eventstreaming.py
+  - src/rapidapi_realtor_search_client/utils/forms.py
+  - src/rapidapi_realtor_search_client/utils/headers.py
+  - src/rapidapi_realtor_search_client/utils/logger.py
+  - src/rapidapi_realtor_search_client/utils/metadata.py
+  - src/rapidapi_realtor_search_client/utils/queryparams.py
+  - src/rapidapi_realtor_search_client/utils/requestbodies.py
+  - src/rapidapi_realtor_search_client/utils/retries.py
+  - src/rapidapi_realtor_search_client/utils/security.py
+  - src/rapidapi_realtor_search_client/utils/serializers.py
+  - src/rapidapi_realtor_search_client/utils/url.py
+  - src/rapidapi_realtor_search_client/utils/values.py
+examples:
+  searchBuy:
+    speakeasy-default-search-buy:
+      parameters:
+        query:
+          location: "<value>"
+          resultsPerPage: 20
+          page: 1
+          sortBy: "relevance"
+          expandSearchArea: 0
+          bedrooms: 0
+          bathrooms: 1
+          hidePendingContingent: false
+          newConstructionOnly: false
+          hideHomesNotYetBuilt: false
+          foreclosuresOnly: false
+          hideForeclosures: false
+          seniorCommunityOnly: false
+          openHousesOnly: false
+          priceRecentlyReducedOnly: false
+          virtualToursOnly: false
+          threeDtoursOnly: false
+          showHomesWhereHoaIsNotKnown: false
+      responses:
+        "200":
+          application/json: {}
+  autoComplete:
+    speakeasy-default-auto-complete:
+      parameters:
+        query:
+          input: "<value>"
+          limit: 10
+      responses:
+        "200":
+          application/json: {}
+  searchRent:
+    speakeasy-default-search-rent:
+      parameters:
+        query:
+          location: "<value>"
+          resultsPerPage: 20
+          page: 1
+          sortBy: "relevance"
+          expandSearchArea: 0
+          bedrooms: 0
+          bathrooms: 1
+          threeDtoursOnly: false
+      responses:
+        "200":
+          application/json: {}
+  searchSold:
+    speakeasy-default-search-sold:
+      parameters:
+        query:
+          location: "<value>"
+          resultsPerPage: 20
+          page: 1
+          sortBy: "lowest_price"
+          expandSearchArea: 0
+          bedrooms: 0
+          bathrooms: 1
+      responses:
+        "200":
+          application/json: {}
+  getPropertyDetails:
+    speakeasy-default-get-property-details:
+      parameters:
+        query:
+          propertyId: "<id>"
+      responses:
+        "200":
+          application/json: {}
+examplesVersion: 1.0.0
+generatedTests: {}

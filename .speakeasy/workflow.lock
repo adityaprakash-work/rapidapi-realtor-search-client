@@ -1,0 +1,38 @@
+speakeasyVersion: 1.515.0
+sources:
+    RapidAPI Realtor Search python SDK:
+        sourceNamespace: rapid-api-realtor-search-python-sdk
+        sourceRevisionDigest: sha256:c82b98d488c22bbd22d3dfaef06c46526c0307b8e338b59c3b62bdeb18aa78c5
+        sourceBlobDigest: sha256:6a3c91332f25942a922ae1aca59eca96ec0ccafb9c71d20c72c1d25a9f7b99ad
+        tags:
+            - latest
+            - 1.0.0
+targets:
+    rapidapi-realtor-search-client:
+        source: RapidAPI Realtor Search python SDK
+        sourceNamespace: rapid-api-realtor-search-python-sdk
+        sourceRevisionDigest: sha256:c82b98d488c22bbd22d3dfaef06c46526c0307b8e338b59c3b62bdeb18aa78c5
+        sourceBlobDigest: sha256:6a3c91332f25942a922ae1aca59eca96ec0ccafb9c71d20c72c1d25a9f7b99ad
+        codeSamplesNamespace: rapid-api-realtor-search-python-sdk-code-samples
+        codeSamplesRevisionDigest: sha256:eaf0e05f9ee82b42e7c0e17f0e6a8051e460e153fdf880dbce6827834cda6933
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        RapidAPI Realtor Search python SDK:
+            inputs:
+                - location: openapi.yml
+            overlays:
+                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            registry:
+                location: registry.speakeasyapi.dev/adityaprakash-work/client-packages/rapid-api-realtor-search-python-sdk
+    targets:
+        rapidapi-realtor-search-client:
+            target: python
+            source: RapidAPI Realtor Search python SDK
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/adityaprakash-work/client-packages/rapid-api-realtor-search-python-sdk-code-samples
+                labelOverride:
+                    fixedValue: Python (SDK)
+                blocking: false

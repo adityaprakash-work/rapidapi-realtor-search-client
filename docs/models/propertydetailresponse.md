@@ -1,0 +1,10 @@
+# PropertyDetailResponse
+
+
+## Fields
+
+| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `data`                                                                                 | [Optional[models.PropertyDetailResponseData]](../models/propertydetailresponsedata.md) | :heavy_minus_sign:                                                                     | N/A                                                                                    |
+| `status`                                                                               | *Optional[bool]*                                                                       | :heavy_minus_sign:                                                                     | N/A                                                                                    |
+| `message`                                                                              | *Optional[str]*                                                                        | :heavy_minus_sign:                                                                     | N/A                                                                                    |
