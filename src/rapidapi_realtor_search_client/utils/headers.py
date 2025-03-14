@@ -6,6 +6,7 @@ from typing import (
     List,
     Optional,
 )
+
 from httpx import Headers
 from pydantic import BaseModel
 from pydantic.fields import FieldInfo
@@ -14,7 +15,6 @@ from .metadata import (
     HeaderMetadata,
     find_field_metadata,
 )
-
 from .values import _is_set, _populate_from_globals, _val_to_string
 
 
@@ -129,7 +129,7 @@ def _serialize_header(explode: bool, obj: Any) -> str:
 def get_response_headers(headers: Headers) -> Dict[str, List[str]]:
     res: Dict[str, List[str]] = {}
     for k, v in headers.items():
-        if not k in res:
+        if k not in res:
             res[k] = []
 
         res[k].append(v)
