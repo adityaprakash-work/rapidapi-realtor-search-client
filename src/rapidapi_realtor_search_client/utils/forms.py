@@ -3,20 +3,20 @@
 from typing import (
     Any,
     Dict,
+    get_type_hints,
     List,
     Tuple,
-    get_type_hints,
 )
-
 from pydantic import BaseModel
 from pydantic.fields import FieldInfo
+
+from .serializers import marshal_json
 
 from .metadata import (
     FormMetadata,
     MultipartFormMetadata,
     find_field_metadata,
 )
-from .serializers import marshal_json
 from .values import _is_set, _val_to_string
 
 
@@ -72,7 +72,7 @@ def _populate_form(
                 continue
 
             if explode:
-                if field_name not in form:
+                if not field_name in form:
                     form[field_name] = []
                 form[field_name].append(_val_to_string(value))
             else:

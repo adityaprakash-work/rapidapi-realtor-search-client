@@ -3,7 +3,7 @@
 
 ## Fields
 
-| Field                                                  | Type                                                   | Required                                               | Description                                            |
-| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
-| `meta`                                                 | [Optional[models.Meta]](../models/meta.md)             | :heavy_minus_sign:                                     | N/A                                                    |
-| `autocomplete`                                         | List[[models.Autocomplete](../models/autocomplete.md)] | :heavy_minus_sign:                                     | N/A                                                    |
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `meta`                                                                             | [Optional[models.AutoCompleteResponseMeta]](../models/autocompleteresponsemeta.md) | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `autocomplete`                                                                     | List[Dict[str, *Any*]]                                                             | :heavy_minus_sign:                                                                 | N/A                                                                                |

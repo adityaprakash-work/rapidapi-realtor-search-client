@@ -6,9 +6,9 @@ from .autocompleteresponse import (
     AutoCompleteResponse,
     AutoCompleteResponseData,
     AutoCompleteResponseDataTypedDict,
+    AutoCompleteResponseMeta,
+    AutoCompleteResponseMetaTypedDict,
     AutoCompleteResponseTypedDict,
-    Autocomplete,
-    AutocompleteTypedDict,
 )
 from .boundary import Boundary, BoundaryTypedDict
 from .expandsearcharea import ExpandSearchArea
@@ -223,9 +223,9 @@ __all__ = [
     "AutoCompleteResponse",
     "AutoCompleteResponseData",
     "AutoCompleteResponseDataTypedDict",
+    "AutoCompleteResponseMeta",
+    "AutoCompleteResponseMetaTypedDict",
     "AutoCompleteResponseTypedDict",
-    "Autocomplete",
-    "AutocompleteTypedDict",
     "AverageRate",
     "AverageRateTypedDict",
     "AverageRates",

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 50c7766b-75dd-46e7-b0c9-bed12df5c06d
 management:
-  docChecksum: 1f4290ef4aaf35034fc39af769b8a278
+  docChecksum: 866adb1570c72e6c01ae606da07c4e3a
   docVersion: 1.0.0
-  speakeasyVersion: 1.515.0
-  generationVersion: 2.547.2
-  releaseVersion: 0.2.1
-  configChecksum: 45d7a1fe966586f49b99d705fe963966
+  speakeasyVersion: 1.517.3
+  generationVersion: 2.548.6
+  releaseVersion: 0.2.3
+  configChecksum: 79096c0a7fdd08a6b7b962dc48dc24e0
 features:
   python:
     additionalDependencies: 1.0.0
@@ -41,10 +41,10 @@ generatedFiles:
   - docs/models/advertisers.md
   - docs/models/agents.md
   - docs/models/assessment.md
-  - docs/models/autocomplete.md
   - docs/models/autocompleterequest.md
   - docs/models/autocompleteresponse.md
   - docs/models/autocompleteresponsedata.md
+  - docs/models/autocompleteresponsemeta.md
   - docs/models/averagerate.md
   - docs/models/averagerates.md
   - docs/models/boundary.md

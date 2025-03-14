@@ -998,11 +998,20 @@ components:
           type: object
           properties:
             meta:
-              $ref: "#/components/schemas/Meta"
+              type: object
+              properties:
+                version:
+                  type: string
+                es_took:
+                  type: integer
+                es_total_hits:
+                  type: integer
             autocomplete:
               type: array
               items:
                 type: object
+                # Can enforce strict types, leave as is for now
+                additionalProperties: true
         status:
           type: boolean
         message:
